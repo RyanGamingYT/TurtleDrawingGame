@@ -43,12 +43,6 @@ def exit_game():
     control_window.destroy()
     print("Exit")
 
-def shapes():
-    shapes_win = tk.Tk()
-    shapes_win.title("Draw a Shape")
-    circle = tk.Button(shapes_win, text="Draw a Circle", command=t.shape(name="circle"))
-    circle.pack()
-    shapes_win.mainloop()
 
 # Thread target function to capture keyboard events
 def keyboard_listener():
@@ -58,7 +52,6 @@ def keyboard_listener():
     keyboard.on_press_key("d", lambda _: turn_right())
     keyboard.on_press_key("r", lambda _: restart())
     keyboard.on_press_key("x", lambda _: exit_game())
-    keyboard.on_press_key("z", lambda _: shapes)
 
 
 # Create and start the keyboard listener thread
