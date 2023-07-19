@@ -14,29 +14,41 @@ screen.setup(width=1366, height=768)
 # Define the turtle's movement functions
 def move_forward():
     t.forward(100)
+    print("Forward")
 
 
 def move_backward():
     t.backward(100)
+    print("Backward")
 
 
 def turn_left():
     t.left(45)
+    print("Left")
 
 
 def turn_right():
     t.right(45)
+    print("Right")
 
 
 def restart():
     t.home()
     t.clear()
+    print("Restart")
 
 
 def exit_game():
     screen.bye()
     control_window.destroy()
+    print("Exit")
 
+def shapes():
+    shapes_win = tk.Tk()
+    shapes_win.title("Draw a Shape")
+    circle = tk.Button(shapes_win, text="Draw a Circle", command=t.shape(name="circle"))
+    circle.pack()
+    shapes_win.mainloop()
 
 # Thread target function to capture keyboard events
 def keyboard_listener():
@@ -46,6 +58,7 @@ def keyboard_listener():
     keyboard.on_press_key("d", lambda _: turn_right())
     keyboard.on_press_key("r", lambda _: restart())
     keyboard.on_press_key("x", lambda _: exit_game())
+    keyboard.on_press_key("z", lambda _: shapes)
 
 
 # Create and start the keyboard listener thread
